@@ -1,30 +1,29 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function RoutineCard({item, onPress}){
-    return(
-        <TouchableOpacity style={styles.card} onPress={onPress}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.time}>{item.time}</Text>
-        </TouchableOpacity>
-    );
+export default function RoutineCard({ item, onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress} style={styles.card} activeOpacity={0.8}>
+      <View>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.time}>{item.time}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
-    card:{
-        backgroundColor:"#fff",
-        padding:15,
-        borderRadius:10,
-        marginVertical:10,
-        elevation:3
-    },
-    title:{
-        fontSize:20,
-        fontWeight:'bold',
-        color:'#000'
-    },
-    time:{
-        fontSize:14,
-        fontWeight:'400',
-        color:'#888'
-    }
+  card: {
+    backgroundColor: "#fff",
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 10,
+    elevation: 3,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4
+  },
+  title: { fontSize: 18, fontWeight: "700" },
+  time: { marginTop: 6, color: "#555" }
 });
